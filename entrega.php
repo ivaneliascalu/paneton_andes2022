@@ -51,7 +51,7 @@
                         <div class="input-group">
                         <input type="text" class="form-control" placeholder="DNI">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">Buscar</button>
+                            <button class="btn btn-primary" onclick="cargarSocio()" type="button">Buscar</button>
                         </div>
                         </div>
                     </div>
@@ -104,6 +104,11 @@
           <?php 
           include 'footer.php';
           ?>
+          <div>
+          <?php 
+
+?>
+          </div>
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
@@ -116,5 +121,10 @@
       </div>
     </div>
 </body>
+<script>
+    function cargarSocio(){
+        
+    }
+</script>
 </html>
 

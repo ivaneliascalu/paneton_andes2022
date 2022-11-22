@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function cargarSocio(){
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "askjdLKJASLK65fd6asa4562ASDasdJJdd152");
+        myHeaders.append('Access-Control-Allow-Origin', 'http://localhost/paneton_andes2022');
+        myHeaders.append('Access-Control-Allow-Credentials', 'true');
+        myHeaders.append('GET', 'POST', 'OPTIONS');
+
+        var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+        };
+
+        fetch("http://181.176.156.77:8085/AppiRestFulSFI/api/WebService/getPersona/getAllDatos/N/1630000036299", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
+</script>
+</html>
