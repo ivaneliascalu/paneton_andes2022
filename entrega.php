@@ -77,7 +77,7 @@ echo $response;
                         <div class="input-group">
                         <input type="text" class="form-control" name="dni" id="dni" placeholder="DNI">
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit">Buscar</button>
+                            <button class="btn btn-primary" type="button">Buscar</button>
                         </div>
                         </div>
                     </div>
@@ -130,6 +130,11 @@ echo $response;
           <?php 
           include 'footer.php';
           ?>
+          <div>
+          <?php 
+
+?>
+          </div>
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
@@ -142,6 +147,11 @@ echo $response;
       </div>
     </div>
 </body>
+<script>
+    function cargarSocio(){
+        
+    }
+</script>
 </html>
 
 
