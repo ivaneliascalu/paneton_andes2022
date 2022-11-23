@@ -72,38 +72,73 @@ echo $response;
                     Cargar datos de Socio
                   </p>
                   <form class="forms-sample">
-                    <div class="form-group">
-                        <div class="input-group">
-                        <input type="text" class="form-control" placeholder="DNI">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" onclick="cargarSocio()" type="button">Buscar</button>
+                      
+                      <div class="container">
+                        <div class="row">
+
+                          <div class="col">
+                            <div class="col-md-auto">
+                                <span>Buscar por DNI</span>
+                                <input type="text" class="form-control" id="documentobusqueda" placeholder="DNI"> 
+                                <div class="col-md-auto">                
+                                <button class="btn btn-primary" id="buscar"  type="button">Buscar</button>  
+                                </div>                   
+                            </div>
+                               
+                          </div>
+                          <div class="col-md-auto">
+                              <span>Codigo Agencia</span>
+                              <input type="text" autocomplete="off" name="codigoagencia" class="form-control" id="codigoagencia">
+                            
+                          </div>
+                          
                         </div>
+                          <br>
+                          <div class="content-wrapper bg-secondary text-white"  > 
+                              <div class="row">
+                                  <div class="col-md-auto">
+                                    <label>
+                                        <span>Correo</span>                          
+                                        <input type="email" autocomplete="off" name="correo" id="correo" class="form-control">    
+                                    </label>                          
+                                  </div>
+                                  <div class="col-md-auto">                     
+                                      <label>
+                                        <span>Direccion vivienda</span>                          
+                                        <input type="text" autocomplete="off" class="form-control" name="direccion" id="direccion" >
+                                      </label>
+                                  </div>
+                                  <div class="col-md-auto">                     
+                                      <label>
+                                        <span>DNI</span>                          
+                                        <input type="text" autocomplete="off" class="form-control" name="dni" id="dni" >
+                                      </label>
+                                  </div>
+                              </div>
+
+
+                              <div class="row">
+                                    <div class="col-md-auto">                      
+                                        <label>
+                                          <span>Nombres</span>                          
+                                          <input type="text" autocomplete="off" class="form-control" name="nombres" id="nombres" class="form-control">
+                                        </label>
+                                    </div>
+                                    <div class="col-md-auto">                      
+                                        <label>
+                                          <span>Profesion</span>                          
+                                          <input type="text" autocomplete="off" class="form-control" name="profesion" id="profesion" class="form-control">
+                                        </label>
+                                    </div>
+                                
+                                    <div class="col-md-auto">                      
+                                        <label>
+                                          <span>telefono</span>                          
+                                          <input type="text" autocomplete="off" class="form-control" name="telefono" id="telefono" class="form-control">
+                                        </label>
+                                    </div>
+                              </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="">Nombres</label>
-                      <input type="text" class="form-control" id="nombre" placeholder="Nombres">
-                    </div>
-                    <div class="form-group">
-                      <label for="">Apellido Paterno</label>
-                      <input type="text" class="form-control" id="app" placeholder="Apellido Paterno">
-                    </div>
-                    <div class="form-group">
-                      <label for="">Apellido Materno</label>
-                      <input type="text" class="form-control" id="apm" placeholder="Apellido Materno">
-                    </div>
-                    <div class="form-group">
-                      <label for="">Email address</label>
-                      <input type="email" class="form-control" id="correo" placeholder="Email">
-                    </div>
-                    
-                    <div class="form-group">
-                      <label for="">Genero</label>
-                        <select class="form-control" id="exampleSelectGender">
-                          <option>Masculino</option>
-                          <option>Femenino</option>
-                        </select>
-                      </div>
                     
 
                           <div class="form-group">                      
