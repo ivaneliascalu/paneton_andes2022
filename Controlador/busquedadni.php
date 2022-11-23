@@ -8,10 +8,10 @@ $curl = curl_init();
 
 // Buscar dni
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'http://181.176.156.77:8085/AppiRestFulSFI/api/empleados/' . $dni,
+  CURLOPT_URL => 'http://181.176.156.77:8085/AppiRestFulSFI/api/empleados/'.$dni,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
-  CURLOPT_MAXREDIRS => 2,
+  CURLOPT_MAXREDIRS =>2,
   CURLOPT_TIMEOUT => 0,
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
