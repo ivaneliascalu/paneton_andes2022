@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Entrega Producto</title>
+  <title>Producto</title>
   <!-- base:css -->
   <link rel="stylesheet" href="public/template/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="public/template/vendors/css/vendor.bundle.base.css">
@@ -43,62 +43,42 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Datos de Socio</h4>                  
+                  <h4 class="card-title">Producto</h4>                  
                   <form class="form-control">                  
-                              <div class="row">
-                                  <div class="col-4" >
-                                      <div class="col-6">
-                                          <span>Cargar datos de Socio por DNI</span>
-                                          <input type="search" class="form-control ds-input" id="documentobusqueda" placeholder="Busqueda por DNI..."> 
-                                          <div class="col-2">                
-                                              <button class="btn btn-primary" id="buscar"  type="button">Buscar</button>  
-                                          </div> 
-                                      </div>
-                                              
-                                  </div>  
-                                  
-                                  <div class="col-2">
-                                    <span>Codigo Agencia</span>
-                                    <input type="text" autocomplete="off" name="codigoagencia" class="form-control" id="codigoagencia">                                  
-                                  </div>
+                              <div class="row">                                   
+                                    <div class="col-4">
+                                           <span>Nombre Producto</span>
+                                           <input type="text" class="form-control ds-input" id="nombreproducto" placeholder="Ingrese Producto...">   
+                                    </div> 
                                 </div>
                               
-                        
-                          <br>
-                         
-                              <div class="row">
-                                  <div class="col-3">
+                                <br>
+                                <br>
+                                <div class="row">
                                     
-                                        <span>Nombre Socio</span>                          
-                                        <input type="text" autocomplete="off" name="correo" id="correo" class="form-control">  
-                                        <i class="far fa-user"></i>  
+                                    <div class="col-4">
+                                        <label for="">Unidad de Medida</label> 
+                                        <select class="form-select" aria-label="Default select example">
+                                        <option selected>Medida</option>
+                                        <option value="1">Unidad</option>
+                                        <option value="2">Paquete 12</option>
+                                        <option value="3">muchos</option>
+                                    </select>                                  
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <span>Descripcion Producto</span>                          
+                                        <input type="text" autocomplete="off" name="correo" id="correo" class="form-control">                                          
                                                             
-                                  </div>
-                                  <div class="col-3">                     
-                                      
-                                        <span>Codigo Socio</span>                          
-                                        <input type="text" autocomplete="off" class="form-control" name="direccion" id="direccion" >
-                                    
-                                  </div>
-                                  
-                              </div>
+                                    </div>  
+                                </div>
+                              <br>                              
                               <br>
-                              <div class="col-6">                     
-                                      
-                                        <span>Mensaje</span>                          
-                                        <input type="text" autocomplete="off" class="form-control" name="dni" id="dni" >
-                                        <!-- <textarea class="form-control" rows="3"></textarea> -->
-                                      
-                              </div>
-                              <br>
-                                <div class="row-2">
-                                      <div class="col-2">  
-                                            <span>Cantidad Producto Entregado</span>                          
-                                            <input type="number" autocomplete="off" class="form-control" name="nombres" id="nombres" class="form-control" min="1" max="999999">
-                                            
-                                          </div>
-                                      <br>
-                                      <br>
+                                <div class="row-2">                                      
+                                      <br>                                      
                                       <div class="row-3">
                                           <div class="col-2">
                                                 <div class=" form-switch">  
@@ -108,6 +88,7 @@
                                           </div>
                                       </div> 
                                 </div>
+                                <br>
                                 <br>
                               
                           
