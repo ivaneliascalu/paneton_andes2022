@@ -6,6 +6,29 @@
     $query=mysqli_query($con,$sql);
  $row=mysqli_fetch_array($query);
 ?>
+
+<?php
+  require_once('Controlador/coneccionbd.php');
+  if(isset($_POST["submit"])){
+
+    $nombreProducto=$_POST["nombreProducto"];
+    $unidadMedida=$_POST["unidadMedida"];
+    $descProducto=$_POST["descProducto"];
+    $Estado=$_POST["Estado"];
+
+    $sql="INSERT INTO producto (nombreProducto,unidadMedida,descProducto,Estado)
+    value('$nombreProducto','$unidadMedida','$descProducto','$Estado')";
+
+    $result=mysqli_query($con,$sql);
+
+    if($result){
+      
+    }
+    else{
+      die(mysqli_error($con));
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -59,7 +82,7 @@
                 <div class="card-body">
                   <h4 class="card-title">Registro Producto</h4>  
                             
-                  <form class="" action="producto.php" method="POST">                  
+                  <form class="" action="producto.php" method="POST" id="frm">                  
                                     <div class="row">                                   
                                         <div class="col-4">
                                               <label>Nombre Producto</label> 
@@ -97,24 +120,12 @@
                                     <br>     
                                     <div class="form-group">                      
                                         <div class="form-check form-check-success">
-                                        <button type="submit" name="Guardar"  class="btn btn-primary me-2">Registrar</button>
+                                        <button type="submit" name="submit" id="save" class="btn btn-primary me-2">Registrar</button>
 
                                     </div>                                                             
                             </div>
                         </form>
-                        <?php
-                          if (isset($_POST["Guardar"])){                              
-                            $nombreProducto= $_POST["nombreProducto"];
-                            $unidadMedida =$_POST["unidadMedida"];
-                            $descProducto =$_POST["descProducto"];
-                            $Estado = $_POST["Estado"];
-                            $sql = "INSERT INTO producto (nombreProducto,unidadMedida,descProducto,Estado)
-                                    VALUES  ('$nombreProducto','$unidadMedida','$descProducto','$Estado')";
-                            $result = mysqli_query($con,$sql);
-                            
-
-                          }
-                        ?>
+                       
                         
                         <div class="responsive">
                             <table id="tabla" class="table table-sm" cellspacing="0" width="100%">                                
@@ -180,6 +191,25 @@
         $(document).ready(function(){
             $('#tabla').DataTable({
                 responsive: true
+            });
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+            $('#save').click(function(){
+              $.ajax({
+                url:"Controlador/crudproducto/insert.php",
+                type:"post",
+                data:$("#frm").serialize(),
+                success:function(d)
+                {
+                  alert(d);
+                  $("#frm")[0].reset();
+                }
+
+              });
+                
             });
         });
     </script>
