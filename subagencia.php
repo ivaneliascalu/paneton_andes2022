@@ -1,11 +1,11 @@
-
 <?php 
     include("Controlador/coneccionbd.php");
-     $con=conectar();
-     $sql="SELECT *  FROM producto";
+    $con=conectar();
+    $sql="SELECT *  FROM subagencia";
     $query=mysqli_query($con,$sql);
- $row=mysqli_fetch_array($query);
+    $row=mysqli_fetch_array($query);
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,7 +13,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Entrega Producto</title>
+  <title>Sub Agencia</title>
   <!-- base:css -->
   <link rel="stylesheet" href="public/template/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="public/template/vendors/css/vendor.bundle.base.css">
@@ -57,66 +57,57 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Registro Producto</h4>  
+                  <h4 class="card-title">Registro SubAgencia</h4>  
                             
-                  <form class="" action="producto.php" method="POST">                  
-                                    <div class="row">                                   
+                  <form class="form-control" action="producto.php" method="POST">                   
+                                    <div class="row"> 
                                         <div class="col-4">
-                                              <label>Nombre Producto</label> 
-                                              <input type="text" class="form-control ds-input" name="nombreProducto" id="nombreProducto">   
-                                        </div> 
-                                        <div class="col-3">
-                                            <label for="">Unidad de Medida</label> 
-                                              <select class="form-select" aria-label="Default select example" name="unidadMedida" id="unidadMedida">
-                                                  <option selected disabled="disabled">Seleccione Medida</option>
-                                                  <option  value="1">1 Producto</option>
-                                                  <option  value="2">2 Productos</option>
-                                                  <option  value="3">3 Productos</option>
-                                                  <option  value="4">4 Productos</option>
+                                            <label for="">Agencia</label> 
+                                              <select class="form-select" aria-label="Default select example" name="Estado" id="Estado"> 
+                                                  <option value="1">Abancay</option>
+                                                  <option value="0">Chalhuanca</option>                                                  
                                               </select>                                  
+                                        </div>                                  
+                                        <div class="col-3">
+                                              <span>Nombre SubAgencia</span>
+                                              <input type="text" class="form-control ds-input" name="codAgencia" id="codAgencia" placeholder="Ingrese Nombre...">   
                                         </div>
-                                    </div>                                  
-                                    
-                                    
-                                    <br>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <span>Descripcion Producto</span>                          
-                                            <input type="text" name="descProducto" id="descProducto" class="form-control">
-                                        </div>  
                                         <div class="col-2">
+                                            <span>Codigo SubAgencia</span>                          
+                                            <input type="text" name="descAgencia" id="descAgencia" class="form-control" placeholder="Ingrese Codigo...">                                          
+                                                                
+                                        </div>                                          
+                                    </div>
+                                  
+                                    <br>
+                                    <br>
+                                   
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <span>Descripcion subAgencia</span>                          
+                                            <input type="text" name="descAgencia" id="descAgencia" class="form-control" placeholder="Ingrese Descripcion...">                                          
+                                                                
+                                        </div>  
+                                        <div class="col-3">
                                             <label for="">Estado</label> 
                                               <select class="form-select" aria-label="Default select example" name="Estado" id="Estado"> 
                                                   <option value="1">Activo</option>
                                                   <option value="0">Inactivo</option>                                                  
                                               </select>                                  
                                           </div>
-                                     </div>
-                                  
-                                    <br>     
+                                    </div>
+                                  <br>                              
+                                  <br>
+                                    
+                                      
                                     <div class="form-group">                      
                                         <div class="form-check form-check-success">
-                                        <button type="submit" name="Guardar"  class="btn btn-primary me-2">Registrar</button>
-
-                                    </div>                                                             
+                                        <button type="submit" name="submit" class="btn btn-primary me-2">Registrar</button>
+                                    </div>
+                              
                             </div>
-                        </form>
-                        <?php
-                          if (isset($_POST["Guardar"])){                              
-                            $nombreProducto= $_POST["nombreProducto"];
-                            $unidadMedida =$_POST["unidadMedida"];
-                            $descProducto =$_POST["descProducto"];
-                            $Estado = $_POST["Estado"];
-                            $sql = "INSERT INTO producto (nombreProducto,unidadMedida,descProducto,Estado)
-                                    VALUES  ('$nombreProducto','$unidadMedida','$descProducto','$Estado')";
-                            $result = mysqli_query($con,$sql);
-                            
-
-                          }
-                        ?>
-                        
-                        <div class="responsive">
+                      </form>
+                      <div class="responsive">
                             <table id="tabla" class="table table-sm" cellspacing="0" width="100%">                                
                                   <thead class="table-success" >
                                       <tr>

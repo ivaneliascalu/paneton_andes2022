@@ -33,6 +33,19 @@
             <span class="menu-title">Salida Producto</span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="agencia.php">
+            <i class="mdi mdi-palette menu-icon"></i>
+            <span class="menu-title">Agencia</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="subagencia.php">
+            <i class="mdi mdi-palette menu-icon"></i>
+            <span class="menu-title">SubAgencia</span>
+          </a>
+        </li>
+        
         
         <li class="nav-item sidebar-category">
           <p>Reportes</p>
