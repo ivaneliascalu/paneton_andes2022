@@ -124,16 +124,16 @@
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
                 <img src="public/template/images/faces/face5.jpg" alt="profile"/>
-                <span class="nav-profile-name">Eleanor Richardson</span>
+                <span class="nav-profile-name"><?='¡Hola ' . htmlspecialchars($_COOKIE["user"]) . '!' ?></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item">
                   <i class="mdi mdi-settings text-primary"></i>
-                  Settings
+                  Configurar
                 </a>
-                <a class="dropdown-item" href="login.php">
+                <a class="dropdown-item" id="cerrar" >
                   <i class="mdi mdi-logout text-primary"></i>
-                  Logout
+                  Salir
                 </a>
               </div>
             </li>

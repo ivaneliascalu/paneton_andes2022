@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,5 +66,9 @@
   <script src="public/template/js/dashboard.js"></script>
   <!-- End custom js for this page-->
 </body>
-
+<script>
+  $('#cerrar').click(function(){
+    $.removeCookie('user');
+  })
+</script>
 </html>

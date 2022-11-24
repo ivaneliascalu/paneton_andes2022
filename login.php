@@ -96,44 +96,50 @@
       }
     })
   })
-    $('#clave').change(function(){
-      user=$('#user').val();
-      clave=$('#clave').val();
+  $('#clave').change(function(){
+    user=$('#user').val();
+    clave=$('#clave').val();
 
-      // console.log(user);
-      // console.log(clave);
-      $.ajax({
-        url:'controlador/validar_login.php',
-        type:'post',
-        // data:'user='+user,
-        data: {user: user,clave: clave},
-        dataType:'json',
-        success:function(r){
-          if(r.error=='000'){
-            $.ajax({
-              url:'controlador/agencias.php',
-              type:'post',
-              data: {user: user},
-              dataType:'json',
-              success:function(r){
-                console.log(r);
-                $(r).each(function(index,value){
-                  //FALTA ORDENAR POR ID DE AGENCIA
-                  $('#agencias').append(`<option value="${value.codigoAgencia}"> ${value.descripcionAgencia} </option>`)
-                })
-              }
-            })
-          }
-          else{
-            Swal.fire({
-              icon: 'error',
-              title: 'Credenciales Incorrectas',
-              text: 'Intente Nuevamente',
-              
-            })
-          }
+    // console.log(user);
+    // console.log(clave);
+    $.ajax({
+      url:'controlador/validar_login.php',
+      type:'post',
+      // data:'user='+user,
+      data: {user: user,clave: clave},
+      dataType:'json',
+      success:function(r){
+        if(r.error=='000'){
+          $.ajax({
+            url:'controlador/agencias.php',
+            type:'post',
+            data: {user: user},
+            dataType:'json',
+            success:function(r){
+              console.log(r);
+              $(r).each(function(index,value){
+                //FALTA ORDENAR POR ID DE AGENCIA
+                $('#agencias').append(`<option value="${value.codigoAgencia}"> ${value.descripcionAgencia} </option>`)
+              })
+            }
+          })
         }
-      })
+        else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Credenciales Incorrectas',
+            text: 'Intente Nuevamente',
+            
+          })
+        }
+      }
     })
+  })
+</script>
+<script>
+  $('#buscar').click(function(){
+    $.cookie("user", "JLLOCC LLA");
+    $(location).prop('href', 'index.php')
+  })
 </script>
 </html>

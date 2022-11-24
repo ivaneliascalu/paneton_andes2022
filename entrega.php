@@ -54,8 +54,8 @@
                                           </div> 
                                       </div>  
                                       <div class="col-3">
-                                        <span>Fecha</span>
-                                        <input type="date" autocomplete="off" name="fechahoy" class="form-control">                                  
+                                        <span>Fecha Hoy</span>
+                                        <input type="date" autocomplete="off" value='<?php echo date('Y-m-d');?>' name="fechahoy" class="form-control">                                  
                                       </div> 
                                 </div>                             
                         
