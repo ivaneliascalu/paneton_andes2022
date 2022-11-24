@@ -14,12 +14,7 @@
           <p>Modulos</p>
           <span></span>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="entrega.php">
-            <i class="mdi mdi-palette menu-icon"></i>
-            <span class="menu-title">Entrega</span>
-          </a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="producto.php">
             <i class="mdi mdi-palette menu-icon"></i>
@@ -30,6 +25,12 @@
           <a class="nav-link" href="ingresoProducto.php">
             <i class="mdi mdi-palette menu-icon"></i>
             <span class="menu-title">Ingreso Producto</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="entrega.php">
+            <i class="mdi mdi-palette menu-icon"></i>
+            <span class="menu-title">Salida Producto</span>
           </a>
         </li>
         

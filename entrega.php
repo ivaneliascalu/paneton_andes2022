@@ -45,65 +45,84 @@
                 <div class="card-body">
                   <h4 class="card-title">Datos de Socio</h4>                  
                   <form class="form-control">                  
-                              <div class="row">
-                                  <div class="col-4" >
-                                      <div class="col-6">
+                                <div class="row">
+                                      <div class="col-3" >                                     
                                           <span>Cargar datos de Socio por DNI</span>
-                                          <input type="search" class="form-control ds-input" id="documentobusqueda" placeholder="Busqueda por DNI..."> 
-                                          <div class="col-2">                
+                                          <input type="search" class="form-control ds-input"  id="documentobusqueda" placeholder="Busqueda por DNI..."> 
+                                          <div class="col">                
                                               <button class="btn btn-primary" id="buscar"  type="button">Buscar</button>  
                                           </div> 
-                                      </div>
-                                              
-                                  </div>  
-                                  
-                                  <div class="col-2">
-                                    <span>Codigo Agencia</span>
-                                    <input type="text" autocomplete="off" name="codigoagencia" class="form-control" id="codigoagencia">                                  
-                                  </div>
-                                </div>
-                              
+                                      </div>  
+                                      <div class="col-3">
+                                        <span>Fecha</span>
+                                        <input type="date" autocomplete="off" name="fechahoy" class="form-control">                                  
+                                      </div> 
+                                </div>                             
                         
-                          <br>
-                         
-                              <div class="row">
-                                  <div class="col-3">
-                                    
+                                <br>
+                                <br>
+                                
+                                <div class="row">
+                                  <div class="col-4">                                    
                                         <span>Nombre Socio</span>                          
-                                        <input type="text" autocomplete="off" name="correo" id="correo" class="form-control">  
-                                        <i class="far fa-user"></i>  
-                                                            
+                                        <input type="text" autocomplete="off" class="form-control" name="nombreRazonSocial" id="nombreRazonSocial" class="form-control" min="1" max="999999">
+                                            
                                   </div>
-                                  <div class="col-3">                     
-                                      
-                                        <span>Codigo Socio</span>                          
-                                        <input type="text" autocomplete="off" class="form-control" name="direccion" id="direccion" >
-                                    
+                                  <div class="col-2">
+                                        <span>DNI socio</span>                          
+                                        <input type="text" autocomplete="off" class="form-control" name="numeroDocumentoIdentidad" id="numeroDocumentoIdentidad" >                                    
                                   </div>
                                   
                               </div>
                               <br>
-                              <div class="col-6">                     
-                                      
-                                        <span>Mensaje</span>                          
-                                        <input type="text" autocomplete="off" class="form-control" name="dni" id="dni" >
-                                        <!-- <textarea class="form-control" rows="3"></textarea> -->
-                                      
-                              </div>
                               <br>
-                                <div class="row-2">
-                                      <div class="col-2">  
+                                <div class="row">
+                                    <div class="col-4">                                    
+                                              <span>Producto</span>                                         
+                                              <select class="form-select" aria-label="Default select example" name="unidadMedida">
+                                                <option selected disabled="disabled">Seleccione Producto</option>
+                                                <option value="1">Paneton</option>
+                                                <option value="2">2 Productos</option> 
+                                              </select>                                                            
+                                    </div>
+                                    <br> 
+                                    <div class="col-2">
+                                        <span>Codigo socio</span>                          
+                                        <input type="text" autocomplete="off" class="form-control" name="codigoSocio" id="codigoSocio" >                                    
+                                     </div>                                  
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                      <div class="col-3">  
                                             <span>Cantidad Producto Entregado</span>                          
                                             <input type="number" autocomplete="off" class="form-control" name="nombres" id="nombres" class="form-control" min="1" max="999999">
                                             
-                                          </div>
+                                      </div>
+                                    <div class="col-3">
+                                        <span>Ejecutivo</span>                          
+                                        <input type="text" autocomplete="off" class="form-control" name="ejecutivo" id="direccion" >                                    
+                                     </div>                                  
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                        <div class="col-6">
+                                            <span>Mensaje</span>                          
+                                            <input type="text" name="descProducto" class="form-control">                                          
+                                                                
+                                        </div>  
+                                </div>
+                                <br>
+                                <div class="row-2">
+                                      
                                       <br>
                                       <br>
                                       <div class="row-3">
                                           <div class="col-2">
                                                 <div class=" form-switch">  
                                                       <input type="checkbox" class="form-check-input check" > 
-                                                      <label for="check1" class="form-check-label">ESTADO</label>
+                                                      <label for="check1" class="form-check-label">Estado</label>
                                                 </div>
                                           </div>
                                       </div> 
@@ -159,16 +178,11 @@
         type:'post',
         data:'dni='+dnibusqueda,
         dataType:'json',
-        success:function(r){
-          if(r.dni==dnibusqueda){
-            $('#codigoagencia').val(r.codigoAgencia);
-            $('#correo').val(r.correo);
-            $('#direccion').val(r.direccion);
-            $('#dni').val(r.dni);
-            $('#fechanacimiento').val(r.fechaNacimiento);
-            $('#nombres').val(r.nombres);
-            $('#profesion').val(r.profesion);
-            $('#telefono').val(r.telefono);
+        success:function(r){                   
+          if(r[0].numeroDocumentoIdentidad==dnibusqueda){
+            $('#nombreRazonSocial').val(r[0].nombreRazonSocial);
+            $('#numeroDocumentoIdentidad').val(r[0].numeroDocumentoIdentidad);
+            $('#codigoSocio').val(r[0].codigoSocio);
           }
           else{
             alert('error');
@@ -182,22 +196,17 @@
 
 <script> 
     $('#buscar').click(function(){
-      dnibusqueda=$('#documentobusqueda').val();
+      dnibusqueda=$('#documentobusqueda').val();      
       $.ajax({
         url:'Controlador/busquedadni.php',
         type:'post',
         data:'dni='+dnibusqueda,
         dataType:'json',
-        success:function(r){
-          if(r.dni==dnibusqueda){
-            $('#codigoagencia').val(r.codigoAgencia);
-            $('#correo').val(r.correo);
-            $('#direccion').val(r.direccion);
-            $('#dni').val(r.dni);
-            $('#fechanacimiento').val(r.fechaNacimiento);
-            $('#nombres').val(r.nombres);
-            $('#profesion').val(r.profesion);
-            $('#telefono').val(r.telefono);
+        success:function(r){          
+          if(r[0].numeroDocumentoIdentidad==dnibusqueda){            
+            $('#nombreRazonSocial').val(r[0].nombreRazonSocial);
+            $('#numeroDocumentoIdentidad').val(r[0].numeroDocumentoIdentidad);
+            $('#codigoSocio').val(r[0].codigoSocio);
           }
           else{
             alert('error');

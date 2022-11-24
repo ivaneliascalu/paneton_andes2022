@@ -44,12 +44,15 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Registro Producto</h4>                  
-                  <form class="form-control">                  
-                            
-                              
-                        
+                  <form class="form-control"> 
                           <br>
-                         
+                              <div class="row">                                  
+                                  <div class="col-3">
+                                        <span>Producto</span>                          
+                                        <input type="text" class="form-control" name="nombreProducto" id="direccion" >                                    
+                                  </div>                                  
+                              </div>
+                              <br>
                               <div class="row">
                                   <div class="col-3">                                    
                                         <span>Cantidad</span>                          
@@ -75,11 +78,11 @@
                               <div class="row">
                                   <div class="col-3">                                    
                                         <span>Ejecutivo</span>                          
-                                        <input type="text" autocomplete="off" class="form-control" name="nombres" id="nombres" class="form-control" >    
+                                        <input type="text" autocomplete="off" class="form-control" name="Ejecutivo"  class="form-control" >    
                                   </div>
                                   <div class="col-3">
                                         <span>Fecha</span>                          
-                                        <input type="date" class="form-control" name="nombres" id="nombres" class="form-control" >   
+                                        <input type="date" class="form-control" name="fecha"  class="form-control" >   
                                     
                                   </div>
                                   
@@ -90,8 +93,8 @@
                                       <div class="row-3">
                                           <div class="col-2">
                                                 <div class=" form-switch">  
-                                                      <input type="checkbox" class="form-check-input check" > 
-                                                      <label for="check1" class="form-check-label">ESTADO</label>
+                                                      <input type="checkbox" class="form-check-input check" name="Estado"> 
+                                                      <label for="check1" class="form-check-label">Estado</label>
                                                 </div>
                                           </div>
                                       </div> 
@@ -137,63 +140,7 @@
       </div>
   </div>
 </body>
-<script>
-   $("#documentobusqueda").keypress(function(e) { 
-    var code = (e.keyCode ? e.keyCode : e.which);
-     if(code == 13){
-      dnibusqueda=$('#documentobusqueda').val();
-      $.ajax({
-        url:'Controlador/busquedadni.php',
-        type:'post',
-        data:'dni='+dnibusqueda,
-        dataType:'json',
-        success:function(r){
-          if(r.dni==dnibusqueda){
-            $('#codigoagencia').val(r.codigoAgencia);
-            $('#correo').val(r.correo);
-            $('#direccion').val(r.direccion);
-            $('#dni').val(r.dni);
-            $('#fechanacimiento').val(r.fechaNacimiento);
-            $('#nombres').val(r.nombres);
-            $('#profesion').val(r.profesion);
-            $('#telefono').val(r.telefono);
-          }
-          else{
-            alert('error');
-          }
-        }
-      })
-      return false; 
-      }
-    });
-</script>
 
-<script> 
-    $('#buscar').click(function(){
-      dnibusqueda=$('#documentobusqueda').val();
-      $.ajax({
-        url:'Controlador/busquedadni.php',
-        type:'post',
-        data:'dni='+dnibusqueda,
-        dataType:'json',
-        success:function(r){
-          if(r.dni==dnibusqueda){
-            $('#codigoagencia').val(r.codigoAgencia);
-            $('#correo').val(r.correo);
-            $('#direccion').val(r.direccion);
-            $('#dni').val(r.dni);
-            $('#fechanacimiento').val(r.fechaNacimiento);
-            $('#nombres').val(r.nombres);
-            $('#profesion').val(r.profesion);
-            $('#telefono').val(r.telefono);
-          }
-          else{
-            alert('error');
-          }
-        }
-      })
-    })
-</script>
 </html>
 
 

@@ -1,5 +1,27 @@
+<?php
+  require_once('Controlador/coneccionbd.php');
+  if(isset($_POST["submit"])){
+
+    $nombreProducto=$_POST["nombreProducto"];
+    $unidadMedida=$_POST["unidadMedida"];
+    $descProducto=$_POST["descProducto"];
+    $Estado=$_POST["Estado"];
+
+    $sql="INSERT INTO producto (nombreProducto,unidadMedida,descProducto,Estado)
+    value('$nombreProducto','$unidadMedida','$descProducto','$Estado')";
+
+    $result=mysqli_query($con,$sql);
+
+    if($result){
+      
+    }
+    else{
+      die(mysqli_error($con));
+    }
+  }
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- Required meta tags -->
@@ -44,63 +66,64 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Producto</h4>                  
-                  <form class="form-control">                  
-                              <div class="row">                                   
-                                    <div class="col-4">
-                                           <span>Nombre Producto</span>
-                                           <input type="text" class="form-control ds-input" id="nombreproducto" placeholder="Ingrese Producto...">   
-                                    </div> 
-                                </div>
-                              
-                                <br>
-                                <br>
-                                <div class="row">
-                                    
-                                    <div class="col-4">
-                                        <label for="">Unidad de Medida</label> 
-                                        <select class="form-select" aria-label="Default select example">
-                                        <option selected>Medida</option>
-                                        <option value="1">Unidad</option>
-                                        <option value="2">Paquete 12</option>
-                                        <option value="3">muchos</option>
-                                    </select>                                  
+                      <form class="form-control" action="producto.php" method="POST">                  
+                                  <div class="row">                                   
+                                        <div class="col-4">
+                                              <span>Nombre Producto</span>
+                                              <input type="text" class="form-control ds-input" name="nombreProducto" id="nombreProducto" placeholder="Ingrese Producto...">   
+                                        </div> 
                                     </div>
-                                </div>
-                                <br>
-                                <br>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <span>Descripcion Producto</span>                          
-                                        <input type="text" autocomplete="off" name="correo" id="correo" class="form-control">                                          
-                                                            
-                                    </div>  
-                                </div>
-                              <br>                              
-                              <br>
-                                <div class="row-2">                                      
-                                      <br>                                      
-                                      <div class="row-3">
-                                          <div class="col-2">
-                                                <div class=" form-switch">  
-                                                      <input type="checkbox" class="form-check-input check" > 
-                                                      <label for="check1" class="form-check-label">ESTADO</label>
-                                                </div>
-                                          </div>
-                                      </div> 
-                                </div>
-                                <br>
-                                <br>
+                                  
+                                    <br>
+                                    <br>
+                                    <div class="row">                                        
+                                        <div class="col-4">
+                                            <label for="">Unidad de Medida</label> 
+                                            <select class="form-select" aria-label="Default select example" name="unidadMedida" id="unidadMedida">
+                                            <option selected disabled="disabled">Seleccione Medida</option>
+                                            <option value="1">1 Producto</option>
+                                            <option value="2">2 Productos</option>
+                                            <option value="3">3 Productos</option>
+                                            <option value="4">4 Productos</option>
+                                            <option value="5">5 Productos</option>
+                                            <option value="6">6 Productos</option>
+                                            <option value="7">7 Productos</option>
+                                            <option value="8">8 Productos</option>
+                                            <option value="9">9 Productos</option>
+                                        </select>                                  
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <span>Descripcion Producto</span>                          
+                                            <input type="text" name="descProducto" id="descProducto" class="form-control">                                          
+                                                                
+                                        </div>  
+                                    </div>
+                                  <br>                              
+                                  <br>
+                                    <div class="row-2">                                      
+                                          <br>                                      
+                                          <div class="row-3">
+                                              <div class="col-2">
+                                                    <div class=" form-switch">  
+                                                          <input type="checkbox" class="form-check-input check" name="Estado" id="estado" value="1" > 
+                                                          <label for="check1" class="form-check-label">Estado</label>
+                                                    </div>
+                                              </div>
+                                          </div> 
+                                    </div>
+                                    <br>
+                                    <br>     
+                                    <div class="form-group">                      
+                                        <div class="form-check form-check-success">
+                                        <button type="submit" name="submit" class="btn btn-primary me-2">Registrar</button>
+                                    </div>
                               
-                          
-                          <div class="form-group">                      
-                              <div class="form-check form-check-success">
-                              <button type="submit" class="btn btn-primary me-2">Enviar</button>
-                          </div>
-                          
-                        </div>                        
-                       
-                    
-                    </form>
+                            </div>
+                      </form>
                  
                 </div>
               </div>
@@ -119,73 +142,20 @@
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-       
-        <!-- partial -->
         
-  
-        <!-- content-wrapper ends -->
-        <!-- partial:./partials/_footer.html -->
       </div>
   </div>
 </body>
 <script>
-   $("#documentobusqueda").keypress(function(e) { 
-    var code = (e.keyCode ? e.keyCode : e.which);
-     if(code == 13){
-      dnibusqueda=$('#documentobusqueda').val();
-      $.ajax({
-        url:'Controlador/busquedadni.php',
-        type:'post',
-        data:'dni='+dnibusqueda,
-        dataType:'json',
-        success:function(r){
-          if(r.dni==dnibusqueda){
-            $('#codigoagencia').val(r.codigoAgencia);
-            $('#correo').val(r.correo);
-            $('#direccion').val(r.direccion);
-            $('#dni').val(r.dni);
-            $('#fechanacimiento').val(r.fechaNacimiento);
-            $('#nombres').val(r.nombres);
-            $('#profesion').val(r.profesion);
-            $('#telefono').val(r.telefono);
-          }
-          else{
-            alert('error');
-          }
+  $(document).ready(function() {
+    $("#submit").on("click", function() {
+        var condiciones = $("#Estado").is(":checked");
+        if (!condiciones) {
+            alert("Debe aceptar las condiciones");
+            event.preventDefault();
         }
-      })
-      return false; 
-      }
     });
-</script>
-
-<script> 
-    $('#buscar').click(function(){
-      dnibusqueda=$('#documentobusqueda').val();
-      $.ajax({
-        url:'Controlador/busquedadni.php',
-        type:'post',
-        data:'dni='+dnibusqueda,
-        dataType:'json',
-        success:function(r){
-          if(r.dni==dnibusqueda){
-            $('#codigoagencia').val(r.codigoAgencia);
-            $('#correo').val(r.correo);
-            $('#direccion').val(r.direccion);
-            $('#dni').val(r.dni);
-            $('#fechanacimiento').val(r.fechaNacimiento);
-            $('#nombres').val(r.nombres);
-            $('#profesion').val(r.profesion);
-            $('#telefono').val(r.telefono);
-          }
-          else{
-            alert('error');
-          }
-        }
-      })
-    })
+});
 </script>
 </html>
 
